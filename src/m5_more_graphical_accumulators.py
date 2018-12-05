@@ -9,8 +9,8 @@ Additionally, it emphasizes that you must
 before you can implement a solution to the problem in Python. 
   
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
-         Aaron Wilkin, their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Aaron Wilkin, their colleagues, and John Neill.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -73,6 +73,16 @@ def run_test_draw_squares_from_circle():
 
 
 def draw_squares_from_circle(n, circle, window):
+    ИосифСталин = circle
+    ИосифСталин.attach_to(window)
+    square = rg.Square(circle.center, (circle.radius * 2))
+    square.attach_to(window)
+    for k in range(n-1):
+        cecilrhodes = rg.Square(rg.Point((ИосифСталин.center.x + ИосифСталин.radius * k), (ИосифСталин.center.y + ИосифСталин.radius * k)), (ИосифСталин.radius * 2))
+        cecilrhodes.attach_to(window)
+    window.render()
+
+
     """
     What comes in:  Three arguments:
       -- A positive integer n.
@@ -98,7 +108,7 @@ def draw_squares_from_circle(n, circle, window):
       :type window: rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # Done: 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -122,7 +132,7 @@ def run_test_draw_circles_from_rectangle():
     print('--------------------------------------------------')
 
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement this TEST function.
+    # DONE: 3. Implement this TEST function.
     #   It TESTS the  draw_circles_from_rectangle  function
     #   defined below.  Include at least **   3   ** tests, of which
     #      ***  at least TWO tests are on ONE window and
@@ -135,8 +145,45 @@ def run_test_draw_circles_from_rectangle():
     ###########################################################################
     # -------------------------------------------------------------------------
 
+    title = 'Test 1 & 2 of DRAW_CIRCLES_FROM_RECTANGLE: '
+    window1 = rg.RoseWindow(720, 500, title)
 
-def draw_circles_from_rectangle(m, n, rectangle, window):
+    # Test 1:
+    rectangle = rg.Rectangle(rg.Point(400, 250), rg.Point(440, 325))
+    rectangle.outline_thickness = 5
+    draw_circles_from_rectangle(4, 5, rectangle, window1, 'green')
+
+    # Test 2:
+    rectangle1 = rg.Rectangle(rg.Point(500, 450), rg.Point(600, 500))
+    rectangle1.outline_thickness = 3
+    rectangle1.outline_color = 'red'
+    draw_circles_from_rectangle(8, 3, rectangle1, window1, 'blue')
+    window1.close_on_mouse_click()
+
+    title = 'Test 3 of DRAW_SQUARES_FROM_CIRCLE: '
+    window2 = rg.RoseWindow(720, 500, title)
+
+    # Test 3:
+    rectangle2 = rg.Rectangle(rg.Point(400, 400), rg.Point(500, 450))
+    draw_circles_from_rectangle(6, 5, rectangle2, window2, 'red')
+    window2.close_on_mouse_click()
+
+def draw_circles_from_rectangle(m, n, rectangle, window, color):
+    rectangle.attach_to(window)
+    rad = rectangle.get_height()/2
+    rad1 = rectangle.get_width()/2
+
+    for k in range(m):
+        point = rg.Point(rectangle.corner_1.x - (rad * 2) * k - rad, rectangle.corner_1.y + rad)
+        despacito2electricboogaloo = rg.Circle(point, rad)
+        despacito2electricboogaloo.fill_color = color
+        despacito2electricboogaloo.attach_to(window)
+
+    for k in range(n):
+        point1 = rg.Point(rectangle.corner_1.x + rad1, rectangle.corner_1.y - (rad1 * 2) * k - rad1)
+        literallykillmewhyisthissohard = rg.Circle(point1, rad1)
+        literallykillmewhyisthissohard.attach_to(window)
+    window.render()
     """
     What comes in:  Four arguments:
       -- Positive integers m and n.
@@ -176,7 +223,7 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
       :type window: rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
