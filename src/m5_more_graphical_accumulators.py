@@ -279,6 +279,21 @@ def run_test_draw_lines_from_rectangles():
 
 
 def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
+    rectangle1.attach_to(window)
+    rectangle2.attach_to(window)
+    slope = (rectangle1.get_center().y - rectangle2.get_center().y) / (rectangle1.get_center().x - rectangle2.get_center().x)
+    b = rectangle1.get_center().y / (slope * rectangle1.get_center().x)
+    for k in range(n):
+        humphreythefatandstupidheffer = rg.Line(rectangle1.get_center(), rectangle2.get_center())
+        humphreythefatandstupidheffer.attach_to(window)
+
+
+
+
+    window.render()
+
+
+
     """
     What comes in:  Four arguments:
       -- Two rg.Rectangles.
